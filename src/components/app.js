@@ -25,7 +25,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-    		    <input className="btn btn-primary" type="submit" value="Auth" onClick={this.authFunc}/>
+    		    <input className="btn btn-primary" type="submit" value="Autentificação" onClick={this.authFunc}/>
     	    </div>
         )
     }
