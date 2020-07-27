@@ -5,11 +5,27 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
+        this.authFunc = this.authFunc.bind(this);
+    }
+    authFunc() {
+        const authData = { data: "Autenticar Com Waves Keeper" };
+        if (WavesKeeper) {
+            WavesKeeper.auth( authData )
+            .then(auth => {
+                console.log( auth ); //displaying the result on the console
+                /*...processing data */
+            }).catch(error => {
+                console.error( error ); // displaying the result on the console
+                /*...processing errors */
+            })
+        } else {
+            alert("Para autenticar o WavesKeeper precisa estar instalado.");
+        }
     }
     render() {
         return (
             <div className="container">
-    		    <input className="btn btn-primary" type="submit" value="Clique AQUI" onClick={() => {alert("Mas porque você clicou aqui seu retardado?");}}/>
+    		    <input className="btn btn-primary" type="submit" value="Autenticar" onClick={this.authFunc}/>
     	    </div>
         )
     }
